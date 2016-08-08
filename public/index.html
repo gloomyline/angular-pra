@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省、市、区县三级联动下拉选择框</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <select ng-model='province' ng-options="item.name for item in pros" ng-change="proChanged()"></select>
+        <select ng-model='city' ng-options="item.name for item in cities" ng-change="cityChanged()"></select>
+        <select ng-model='area' ng-options="item.DisName for item in areas"></select>
+    </div>
+
+    <script src="/angular/angular.min.js"></script>
+    <script src="/javascripts/index.js"></script>
+</body>
+</html>
