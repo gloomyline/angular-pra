@@ -9,6 +9,11 @@
         <select ng-model='province' ng-options="item.name for item in pros" ng-change="proChanged()"></select>
         <select ng-model='city' ng-options="item.name for item in cities" ng-change="cityChanged()"></select>
         <select ng-model='area' ng-options="item.DisName for item in areas"></select>
+
+        <input type="text" ng-model="filter">
+        <ul>
+            <li ng-repeat="item in pros | filter:filter">{{item.name}}</li>
+        </ul>
     </div>
 
     <script src="/angular/angular.min.js"></script>
