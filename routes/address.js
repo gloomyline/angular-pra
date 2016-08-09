@@ -1,12 +1,12 @@
 var express = require("express");
 var router = express.Router();
 
-router.get("/getAddressData/:tagName/:fid?",(req,res)=>{
+router.get("/getAddressData/:tagName/:fid",(req,res)=>{
 
     var data = [];
-    var tagName = req.param.tagName; /////需要筛选的数据
-    var fid = req.param.fid; /////筛选数据的条件
-
+    var tagName = req.params.tagName; /////需要筛选的数据
+    var fid = req.params.fid; /////筛选数据的条件
+    // console.log(tagName,fid);
     switch(tagName){
         case "city":
         data = citys.filter(function(item){return item.ProID == fid});
@@ -20,7 +20,7 @@ router.get("/getAddressData/:tagName/:fid?",(req,res)=>{
         data = province;
         break;
     }
-
+    // console.log(data);
     //////加上此段代码 解决js跨域请求问题
     res.header("Access-Control-Allow-Origin", "*");
     res.json({status:"y",msg:"请求数据成功",data:data});
